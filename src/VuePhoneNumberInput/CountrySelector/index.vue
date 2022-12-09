@@ -20,7 +20,7 @@
     <div
       v-if="value && !noFlags"
       class="country-selector__country-flag"
-      @click.stop="toggleList"
+      @click.self="toggleList"
     >
       <div :class="`iti-flag-small iti-flag ${value.toLowerCase()}`" />
     </div>
@@ -35,11 +35,11 @@
       :style="[radiusLeftStyle, inputBorderStyle, inputBoxShadowStyle, inputBgColor]"
       @focus="isFocus = true"
       @keydown="keyboardNav"
-      @click.stop="toggleList"
+      @click.self="toggleList"
     >
     <div
       class="country-selector__toggle"
-      @click.stop="toggleList"
+      @click.self="toggleList"
     >
       <slot name="arrow">
         <svg
@@ -64,7 +64,7 @@
       ref="label"
       :style="[labelColorStyle]"
       class="country-selector__label"
-      @click.stop="toggleList"
+      @click.self="toggleList"
     >
       {{ hint || label }}
     </label>

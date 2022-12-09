@@ -28,6 +28,8 @@
         :dark="dark"
         :theme="theme"
         class="input-country-selector"
+        @close="close"
+        @open="open"
       >
         <slot
           slot="arrow"
@@ -247,6 +249,12 @@
       }
     },
     methods: {
+      close () {
+        this.$emit('close')
+      },
+      open () {
+        this.$emit('open')
+      },
       getAsYouTypeFormat (payload) {
         const { countryCode, phoneNumber } = payload
         const asYouType = new AsYouType(countryCode)
